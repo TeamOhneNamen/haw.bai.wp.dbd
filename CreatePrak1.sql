@@ -47,6 +47,13 @@ Preis           number(9,2),
 foreign key (LieferantenID) references Lieferanten,
 foreign key (TeilID) references Teile);
 
+create table Geliefert
+(LieferantenID	number(10),
+TeilID			number(10),
+Preis           number(9,2),
+foreign key (LieferantenID) references Lieferanten,
+foreign key (TeilID) references Teile);
+
 
 INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', 'GartenBauAG');
 INSERT INTO Lieferanten VALUES (2, 'Steinzweg 42', 'SauberBauAG');
@@ -75,6 +82,9 @@ INSERT INTO Lieferpositionen VALUES (11, 3, 10, 20.00);
 
 INSERT INTO Bietet_An VALUES (1, 1, 20.00);
 INSERT INTO Bietet_An VALUES (2, 1, 10.00);
+
+INSERT INTO Geliefert VALUES (1, 1, 20.00);
+INSERT INTO Geliefert VALUES (2, 1, 10.00);
 
 Select * From BIETET_AN Where TEILID=1 || min(PREIS);
 
