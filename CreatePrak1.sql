@@ -1,3 +1,4 @@
+
 drop table Lieferanten CASCADE CONSTRAINTS;
 drop table Lieferungen CASCADE CONSTRAINTS;
 drop table Lieferpositionen CASCADE CONSTRAINTS;
@@ -5,11 +6,10 @@ drop table Teile CASCADE CONSTRAINTS;
 drop table Bietet_An CASCADE CONSTRAINTS;
 drop table Geliefert CASCADE CONSTRAINTS;
 
-
 create table Lieferanten
 (LieferantenID number(19),
-Adresse			varchar(30) IS NOT NULL, 
-Firmenname			varchar(30) IS NOT NULL,
+Adresse			varchar(30) NOT NULL, 
+Firmenname			varchar(30) NOT NULL,
 primary key (LieferantenID));
 
 
@@ -21,36 +21,39 @@ Gesamtsumme			number(9,2),
 primary key (LieferungsID),
 foreign key (LieferantenID) references Lieferanten);
 
-create table Lieferpositionen
-TeilID                  number(10),
-LieferungsID			number(10),
-Stueckzahl				number(10) IS NOT NULL,
-Lieferpositionspreis	number(9,2),
-primary key (LieferungsID, TeilID),
-foreign key (LieferungsID) references Lieferungen);
 
 create table Teile
 (TeilID         number(10),
 LieferantenID	number(10),
-Klassifikation	varchar(1), // check klausel 'A', 'B', 'C'
-Name			varchar(20),
-Bestand			number(10),
+Klassifikation	varchar(1),
+Name			varchar(20) NOT NULL,
+Bestand			number(10) NOT NULL,
 Lagerort		varchar(20),
-Preis			number(9,2),
+Preis			number(9,2) NOT NULL,
+CONSTRAINT Klassifikation CHECK (Klassifikation='A' OR Klassifikation='B' OR Klassifikation='C'),
 primary key (TeilID),
 foreign key (LieferantenID) references Lieferanten);
+
+create table Lieferpositionen
+(TeilID                  number(10),
+LieferungsID			number(10),
+Stueckzahl				number(10) NOT NULL,
+Lieferpositionspreis	number(9,2),
+primary key (TeilID, LieferungsID),
+foreign key (TeilID) references Teile,
+foreign key (LieferungsID) references Lieferungen);
 
 create table Bietet_An
 (LieferantenID	number(10),
 TeilID			number(10),
-Preis           number(9,2),
+Preis           number(9,2) NOT NULL,
 foreign key (LieferantenID) references Lieferanten,
 foreign key (TeilID) references Teile);
 
 create table Geliefert
 (LieferantenID	number(10),
 TeilID			number(10),
-Preis           number(9,2),
+Preis           number(9,2) NOT NULL,
 Lieferdatum     date,
 foreign key (LieferantenID) references Lieferanten,
 foreign key (TeilID) references Teile);
@@ -79,28 +82,28 @@ INSERT INTO Lieferungen VALUES (4, 4, '12.11.2019', 170.00);
 INSERT INTO Lieferungen VALUES (5, 4, '03.01.2018', 40.00);
 INSERT INTO Lieferungen VALUES (6, 4, '04.01.2017', 270.00);
 
-INSERT INTO Lieferpositionen VALUES (1, 1, 1, 10, 30.00);
-INSERT INTO Lieferpositionen VALUES (2, 2, 1, 10, 60.00);
-INSERT INTO Lieferpositionen VALUES (3, 3, 1, 10, 90.00);
-INSERT INTO Lieferpositionen VALUES (4, 4, 1, 10, 20.00);
-INSERT INTO Lieferpositionen VALUES (5, 1, 2, 10, 30.00);
-INSERT INTO Lieferpositionen VALUES (6, 2, 2, 10, 60.00);
-INSERT INTO Lieferpositionen VALUES (7, 3, 2, 10, 90.00);
-INSERT INTO Lieferpositionen VALUES (8, 1, 3, 10, 30.00);
-INSERT INTO Lieferpositionen VALUES (9, 2, 3, 10, 60.00);
-INSERT INTO Lieferpositionen VALUES (10, 3, 3, 10, 90.00);
-INSERT INTO Lieferpositionen VALUES (11, 4, 3, 10, 20.00);
-INSERT INTO Lieferpositionen VALUES (12, 1, 4, 10, 30.00);
-INSERT INTO Lieferpositionen VALUES (13, 2, 4, 10, 60.00);
-INSERT INTO Lieferpositionen VALUES (14, 3, 4, 10, 90.00);
-INSERT INTO Lieferpositionen VALUES (15, 4, 4, 10, 20.00);
-INSERT INTO Lieferpositionen VALUES (16, 1, 5, 10, 30.00);
-INSERT INTO Lieferpositionen VALUES (17, 2, 5, 10, 60.00);
-INSERT INTO Lieferpositionen VALUES (18, 3, 5, 10, 90.00);
-INSERT INTO Lieferpositionen VALUES (19, 1, 6, 10, 30.00);
-INSERT INTO Lieferpositionen VALUES (20, 2, 6, 10, 60.00);
-INSERT INTO Lieferpositionen VALUES (21, 3, 6, 10, 90.00);
-INSERT INTO Lieferpositionen VALUES (22, 4, 6, 10, 20.00);
+INSERT INTO Lieferpositionen VALUES (1, 1, 10, 30.00);
+INSERT INTO Lieferpositionen VALUES (2, 1, 10, 60.00);
+INSERT INTO Lieferpositionen VALUES (3, 1, 10, 90.00);
+INSERT INTO Lieferpositionen VALUES (4, 1, 10, 20.00);
+INSERT INTO Lieferpositionen VALUES (1, 2, 10, 30.00);
+INSERT INTO Lieferpositionen VALUES (2, 2, 10, 60.00);
+INSERT INTO Lieferpositionen VALUES (3, 2, 10, 90.00);
+INSERT INTO Lieferpositionen VALUES (1, 3, 10, 30.00);
+INSERT INTO Lieferpositionen VALUES (2, 3, 10, 60.00);
+INSERT INTO Lieferpositionen VALUES (3, 3, 10, 90.00);
+INSERT INTO Lieferpositionen VALUES (4, 3, 10, 20.00);
+INSERT INTO Lieferpositionen VALUES (1, 4, 10, 30.00);
+INSERT INTO Lieferpositionen VALUES (2, 4, 10, 60.00);
+INSERT INTO Lieferpositionen VALUES (3, 4, 10, 90.00);
+INSERT INTO Lieferpositionen VALUES (4, 4, 10, 20.00);
+INSERT INTO Lieferpositionen VALUES (1, 5, 10, 30.00);
+INSERT INTO Lieferpositionen VALUES (2, 5, 10, 60.00);
+INSERT INTO Lieferpositionen VALUES (3, 5, 10, 90.00);
+INSERT INTO Lieferpositionen VALUES (1, 6, 10, 30.00);
+INSERT INTO Lieferpositionen VALUES (2, 6, 10, 60.00);
+INSERT INTO Lieferpositionen VALUES (3, 6, 10, 90.00);
+INSERT INTO Lieferpositionen VALUES (4, 6, 10, 20.00);
 
 INSERT INTO Bietet_An VALUES (1, 1, 20.00);
 INSERT INTO Bietet_An VALUES (2, 1, 10.00);
@@ -115,8 +118,6 @@ INSERT INTO Geliefert VALUES (3, 1, 70.00, '12.11.2018');
 INSERT INTO Geliefert VALUES (4, 1, 90.00, '12.11.2018');
 INSERT INTO Geliefert VALUES (1, 1, 20.00, '12.11.2018');
 INSERT INTO Geliefert VALUES (2, 1, 10.00, '12.11.2013');
- 
- 
 
 SELECT * FROM Lieferpositionen;
 SELECT * FROM Lieferungen;
@@ -124,6 +125,6 @@ SELECT * FROM Teile;
 SELECT * FROM Lieferanten;
 SELECT * FROM Bietet_An; 
 SELECT * FROM Geliefert;
- 
- 
- GRANT ALL PRIVILEGES ON TEILE TO ace516;
+
+GRANT ALL PRIVILEGES ON TEILE TO ace516;
+
