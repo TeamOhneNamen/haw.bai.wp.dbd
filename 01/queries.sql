@@ -1,5 +1,12 @@
 -- Welche Kunden wurden mit Teilen beliefert, die ein bestimmter Lieferant geliefert hat?
-Select * From BIETET_AN Where preis =  ( SELECT MIN(preis) FROM BIETET_AN Where TeilID in (SELECT TeilID from Teile WHERE Klassifikation='A'));
+Select Kunden.KundenID
+From Kunden,Bestellpositionen, Geliefert
+Where Bestellpositionen.TeilID = Geliefert.TeilID AND Geliefert.LieferantenID = 1;
+
+-- Welche Lieferanten haben für die Teile der Klassifikation „A“ die besten Preise?
+Select * 
+From BIETET_AN 
+Where preis =  ( SELECT MIN(preis) FROM BIETET_AN Where TeilID in (SELECT TeilID from Teile WHERE Klassifikation='A'));
 
 -- Wie hoch ist die gesamte bestellte Anzahl pro Lieferant und Teil im Jahr 2018?
 Select Lieferanten.LieferantenID, Lieferpositionen.TeilID, sum(Lieferpositionen.Stueckzahl) AS Summe
@@ -8,4 +15,6 @@ Where Lieferpositionen.LieferungsID = Lieferungen.LieferungsID AND Lieferungen.L
 GROUP BY(Lieferanten.LieferantenID), Lieferpositionen.TeilID ORDER BY Lieferanten.LieferantenID, Lieferpositionen.TeilID;
 
 --  Bei wem wurde in diesem Jahr nichts bestellt?
-select lieferantenid from lieferanten where lieferantenid not in (select lieferantenid From geliefert where extract(YEAR from lieferdatum) = 2018);
+select lieferantenid 
+from lieferanten 
+where lieferantenid not in (select lieferantenid From geliefert where extract(YEAR from lieferdatum) = 2018);
