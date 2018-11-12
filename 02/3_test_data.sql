@@ -1,19 +1,12 @@
-INSERT INTO Kunden VALUES (1, 'Ana', 'MÃ¼ller', '1234567890', 'SteinstraÃŸe 3');
-INSERT INTO Kunden VALUES (2, 'Christopher', 'JÃ¤ger', '1234567891','DernauerstraÃŸe 12');
-INSERT INTO Kunden VALUES (3, 'Kristin', 'Schreier', '1234567892','Stephansplatz 14');
+INSERT INTO Kunden VALUES (1, 'Ana', 'Müller', '1234567890', '18516', 'Greifswald', 'Steinstraße 3');
+INSERT INTO Kunden VALUES (2, 'Christopher', 'Jäger', '1234567891', '22041', 'Hamburg', 'Dernauerstraße 12');
+INSERT INTO Kunden VALUES (3, 'Kristin', 'Schreier', '1234567892', '15566', 'Schöneiche','Stephansplatz 14');
 
 INSERT INTO Bestellungen VALUES (1, 1, 30.00, '05.01.2018');
 INSERT INTO Bestellungen VALUES (2, 2, 50.00, '04.03.2018');
 INSERT INTO Bestellungen VALUES (3, 3, 70.00, '12.04.2018');
 INSERT INTO Bestellungen VALUES (4, 2, 20.00, '16.08.2018');
 INSERT INTO Bestellungen VALUES (5, 3, 40.00, '23.09.2018');
-
-INSERT INTO Bestellpositionen VALUES (1, 1, 3, 30.00);
-INSERT INTO Bestellpositionen VALUES (2, 2, 5, 50.00);
-INSERT INTO Bestellpositionen VALUES (3, 3, 1, 60.00);
-INSERT INTO Bestellpositionen VALUES (4, 3, 1, 10.00);
-INSERT INTO Bestellpositionen VALUES (5, 2, 1, 20.00);
-INSERT INTO Bestellpositionen VALUES (6, 3, 2, 40.00);
 
 INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', 'GartenBauAG');
 INSERT INTO Lieferanten VALUES (2, 'Steinzweg 42', 'SauberBauAG');
@@ -30,6 +23,13 @@ INSERT INTO Teile VALUES (5, 6, 'A', 'Mutterschraube', 10, 'LagerregaL 50', 17.0
 INSERT INTO Teile VALUES (6, 3, 'A', 'Mutterwinkel', 10, 'LagerregaL 71', 22.00);
 INSERT INTO Teile VALUES (7, 4, 'B', 'VaterSchraube', 10, 'LagerregaL 22', 36.00);
 INSERT INTO Teile VALUES (8, 5, 'C', 'Winkelzieher', 10, 'LagerregaL 73', 99.00);
+
+INSERT INTO Bestellpositionen VALUES (1, 1, 1, 3, 30.00);
+INSERT INTO Bestellpositionen VALUES (2, 2, 2, 5, 50.00);
+INSERT INTO Bestellpositionen VALUES (3, 3, 1, 1, 60.00);
+INSERT INTO Bestellpositionen VALUES (4, 3, 4, 1, 10.00);
+INSERT INTO Bestellpositionen VALUES (5, 2, 5, 1, 20.00);
+INSERT INTO Bestellpositionen VALUES (6, 3, 1, 2, 40.00);
 
 INSERT INTO Lieferungen VALUES (1, 1, '12.11.2013', 70.00);
 INSERT INTO Lieferungen VALUES (2, 2, '03.01.2014', 140.00);

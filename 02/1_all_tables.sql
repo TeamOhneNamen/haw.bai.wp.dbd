@@ -66,6 +66,8 @@ KundenID NUMBER(5),
 Vorname VARCHAR(20),
 Nachname VARCHAR(20),
 IBAN NUMBER(10),
+PLZ NUMBER(5),
+ORT VARCHAR(20),
 Adresse VARCHAR(20),
 PRIMARY KEY(KundenID)
 );
@@ -84,8 +86,10 @@ CREATE TABLE Bestellpositionen
 (
 BestellpositionsID NUMBER(5),
 BestellungsID NUMBER(10),
-Stückzahl NUMBER(20),
+TeilID 		NUMBER(10),
+Stueckzahl NUMBER(20),
 Bestellpositionspreis NUMBER(9,2),
 PRIMARY KEY(BestellpositionsID),
-FOREIGN KEY(BestellungsID) REFERENCES Bestellungen 
+FOREIGN KEY(BestellungsID) REFERENCES Bestellungen,
+FOREIGN KEY(TeilID) REFERENCES Teile  
 );
