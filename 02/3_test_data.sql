@@ -8,12 +8,18 @@ INSERT INTO Bestellungen VALUES (3, 3, 70.00, '12.04.2018');
 INSERT INTO Bestellungen VALUES (4, 2, 20.00, '16.08.2018');
 INSERT INTO Bestellungen VALUES (5, 3, 40.00, '23.09.2018');
 
-INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', 'GartenBauAG');
-INSERT INTO Lieferanten VALUES (2, 'Steinzweg 42', 'SauberBauAG');
-INSERT INTO Lieferanten VALUES (3, 'Plankenweg 32', 'TerassenBauAG');
-INSERT INTO Lieferanten VALUES (4, 'Dielenweg 32', 'DreckigBauAG');
-INSERT INTO Lieferanten VALUES (5, 'Lattenweg 42', 'KleinerBauAG');
-INSERT INTO Lieferanten VALUES (6, 'Balkenweg 32', 'MaurerBauAG');
+INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', '17498', 'Greifswald', 'GartenBauAG');
+INSERT INTO Lieferanten VALUES (2, 'Steinzweg 42', '19258', 'Schwanheide', 'SauberBauAG');
+INSERT INTO Lieferanten VALUES (3, 'Plankenweg 32', '19249', 'Gößlow', 'TerassenBauAG');
+INSERT INTO Lieferanten VALUES (4, 'Dielenweg 32', '18573', 'Rambin', 'DreckigBauAG');
+INSERT INTO Lieferanten VALUES (5, 'Lattenweg 42', '24395', 'Gelting', 'KleinerBauAG');
+INSERT INTO Lieferanten VALUES (6, 'Balkenweg 32', '17506', 'Lüssow', 'MaurerBauAG');
+INSERT INTO Lieferanten VALUES (7, 'Hochweg 3', '92286', 'Rieden', 'GartenBauAG');
+INSERT INTO Lieferanten VALUES (8, 'Stabelweg 32', '60437', 'Frankfurt am Main', 'SauberBauAG');
+INSERT INTO Lieferanten VALUES (9, 'Rekursionsweg 27', '57614', 'Niederwambach', 'TerassenBauAG');
+INSERT INTO Lieferanten VALUES (10, 'Hamweg 5', '66996', 'Schindhard', 'DreckigBauAG');
+INSERT INTO Lieferanten VALUES (11, 'Heuweg 26', '82205', 'Gilching', 'KleinerBauAG');
+INSERT INTO Lieferanten VALUES (12, 'Suchweg 34', '82216', 'Maisach', 'MaurerBauAG');
 
 INSERT INTO Teile VALUES (1, 1, 'A', 'Schraube', 10, 'LagerregaL 10', 10.00);
 INSERT INTO Teile VALUES (2, 2, 'A', 'Mutter', 10, 'LagerregaL 11', 20.00);
