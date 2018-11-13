@@ -80,3 +80,6 @@ INSERT INTO Geliefert VALUES (3, 1, 70.00, '12.11.2018');
 INSERT INTO Geliefert VALUES (4, 1, 90.00, '12.11.2018');
 INSERT INTO Geliefert VALUES (1, 1, 20.00, '12.11.2018');
 INSERT INTO Geliefert VALUES (2, 1, 10.00, '12.11.2013');
+
+-- should return error
+INSERT INTO Lieferanten VALUES (500, 'Holzweg 32', '12345', 'Greifswald', 'GartenBauAG');
