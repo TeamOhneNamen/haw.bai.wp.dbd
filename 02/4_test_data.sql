@@ -1,4 +1,4 @@
-INSERT INTO Kunden VALUES (1, 'Ana', 'Müller', '1234567890', '18516', 'Greifswald', 'Steinstraße 3');
+INSERT INTO Kunden VALUES (1, 'Ana', 'Müller', '1234567890', '18516', 'Süderholz', 'Steinstraße 3');
 INSERT INTO Kunden VALUES (2, 'Christopher', 'Jäger', '1234567891', '22041', 'Hamburg', 'Dernauerstraße 12');
 INSERT INTO Kunden VALUES (3, 'Kristin', 'Schreier', '1234567892', '15566', 'Schöneiche','Stephansplatz 14');
 
@@ -8,7 +8,7 @@ INSERT INTO Bestellungen VALUES (3, 3, 70.00, '12.04.2018');
 INSERT INTO Bestellungen VALUES (4, 2, 20.00, '16.08.2018');
 INSERT INTO Bestellungen VALUES (5, 3, 40.00, '23.09.2018');
 
-INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', '17498', 'Greifswald', 'GartenBauAG');
+INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', '17498', 'Dersekow', 'GartenBauAG');
 INSERT INTO Lieferanten VALUES (2, 'Steinzweg 42', '19258', 'Schwanheide', 'SauberBauAG');
 INSERT INTO Lieferanten VALUES (3, 'Plankenweg 32', '19249', 'Gößlow', 'TerassenBauAG');
 INSERT INTO Lieferanten VALUES (4, 'Dielenweg 32', '18573', 'Rambin', 'DreckigBauAG');
