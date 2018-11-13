@@ -20,7 +20,6 @@ primary key (LieferantenID));
 create table Lieferungen
 (LieferungsID		number(10),
 LieferantenID		number(10),
-Lieferdatum         date,
 Gesamtsumme			number(9,2),
 primary key (LieferungsID),
 foreign key (LieferantenID) references Lieferanten);
@@ -55,11 +54,12 @@ foreign key (LieferantenID) references Lieferanten,
 foreign key (TeilID) references Teile);
 
 create table Geliefert
-(LieferantenID	number(10),
+(LieferungsID	number(10),
 TeilID			number(10),
 Preis           number(9,2) NOT NULL,
 Lieferdatum     date,
-foreign key (LieferantenID) references Lieferanten,
+PRIMARY KEY(LieferungsID,TeilID),
+foreign key (LieferungsID) references Lieferungen,
 foreign key (TeilID) references Teile);
 
 CREATE TABLE Kunden

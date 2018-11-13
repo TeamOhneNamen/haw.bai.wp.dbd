@@ -1,11 +1,11 @@
 drop Procedure LieferungStueckzahlErhoehen;
 
-create or replace Procedure LieferungStueckzahlErhoehen(parbestellungsID in number) as
+create or replace Procedure LieferungStueckzahlErhoehen(lieferungsid_ in number) as
 
 Begin
     
-    FOR bestellung IN (SELECT TeilID, Stueckzahl FROM Bestellpositionen WHERE BestellungsID=parbestellungsID) LOOP
-        UPDATE Teile SET bestand = bestand + bestellung.Stueckzahl WHERE teile.teilid = bestellung.teilid;
+    FOR Lieferungen IN (SELECT TeilID, Stueckzahl FROM lieferpositionen WHERE lieferungsid=lieferungsid_) LOOP
+        UPDATE Teile SET bestand = bestand + Lieferungen.Stueckzahl WHERE teile.teilid = Lieferungen.teilid;
     END LOOP;
     
     
