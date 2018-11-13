@@ -6,7 +6,7 @@ CREATE TABLE Fakten(
 	Klassifikation VARCHAR(1),
 	Jahr NUMBER(4),
 	Monat NUMBER(2),
-	Tag NUMBER(1),
+	Tag NUMBER(2),
 FOREIGN KEY(LieferantID) REFERENCES Lieferanten,
 FOREIGN KEY(TeilID) REFERENCES Teile);
 
