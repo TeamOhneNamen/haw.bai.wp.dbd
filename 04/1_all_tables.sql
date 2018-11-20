@@ -80,9 +80,9 @@ foreign key (TeilID) references Teile);
 
 CREATE TABLE Kunden
 (
+GeschaeftspartnerID number(10),
 Vorname VARCHAR(20),
 IBAN NUMBER(10),
-GeschaeftspartnerID number(10),
 primary key (GeschaeftspartnerID),
 foreign key (GeschaeftspartnerID) references Geschaeftspartner
 );

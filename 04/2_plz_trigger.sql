@@ -1,3 +1,5 @@
+DROP Sequence GESCHAEFT_ID;
+
 CREATE OR REPLACE TRIGGER plz_check
 BEFORE INSERT OR UPDATE ON Geschaeftspartner 
 FOR EACH ROW
@@ -12,29 +14,23 @@ BEGIN
 END;
 /
 
-DROP Sequence GESCHAEFT_ID;
 Create Sequence GESCHAEFT_ID;
 
-drop Procedure InsertLieferant;
-drop Procedure InsertKunden;
 
-create or replace Procedure InsertKunden(Name VARCHAR,PLZ NUMBER,ORT VARCHAR,Strasse VARCHAR, Vorname VARCHAR,IBAN NUMBER) AS
-    GeschaeftspartnerID NUMBER;
+create or replace Procedure InsertKunden(Vorname in VARCHAR, Names in VARCHAR, PLZ in NUMBER, ORT in VARCHAR, Strasse in VARCHAR, IBAN in NUMBER, TelefonNummern in TelefonnummernVarray) AS
+GID number;
 Begin
-    GeschaeftspartnerID := GESCHAEFT_ID.NEXTVAL;
-    INSERT INTO Geschaeftspartner VALUES (GeschaeftspartnerID, Name, PLZ, ORT, Strasse); 
-    INSERT INTO Kunden VALUES (GeschaeftspartnerID, Vorname, IBAN);
-    
-    
+    SELECT GESCHAEFT_ID.NEXTVAL INTO GID FROM DUAL; 
+    INSERT INTO Geschaeftspartner VALUES (GID, Names, PLZ, ORT, Strasse, TelefonNummern); 
+    INSERT INTO Kunden VALUES (GID, Vorname, IBAN);
 End;
 /
 
-create or replace Procedure InsertLieferant(Name VARCHAR,PLZ NUMBER,ORT VARCHAR,Strasse VARCHAR) AS
-    GeschaeftspartnerID NUMBER;
+create or replace Procedure InsertLieferant(Names in VARCHAR,PLZ in NUMBER,ORT in VARCHAR,Strasse in VARCHAR, TelefonNummern in TelefonnummernVarray) AS
+GID number;
 Begin
-    GeschaeftspartnerID := GESCHAEFT_ID.NEXTVAL;
-    INSERT INTO Geschaeftspartner VALUES (GeschaeftspartnerID, Name, PLZ, ORT, Strasse); 
-    INSERT INTO Lieferanten VALUES (GeschaeftspartnerID);
-    
-    
+    SELECT GESCHAEFT_ID.NEXTVAL INTO GID FROM DUAL; 
+    INSERT INTO Geschaeftspartner VALUES (GID, Names, PLZ, ORT, Strasse, TelefonNummern); 
+    INSERT INTO Lieferanten VALUES (GID); 
 End;
+/
