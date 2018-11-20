@@ -7,7 +7,10 @@ drop table Geliefert CASCADE CONSTRAINTS;
 drop table Kunden CASCADE CONSTRAINTS;
 drop table Bestellungen CASCADE CONSTRAINTS;
 drop table Bestellpositionen CASCADE CONSTRAINTS;
+drop table Geschaeftspartner CASCADE CONSTRAINTS;
 
+CREATE OR REPLACE TYPE TelefonnummernVarray IS VARRAY(3) OF VARCHAR(20)
+/
 
 CREATE TABLE Geschaeftspartner
 (
@@ -15,15 +18,17 @@ GeschaeftspartnerID NUMBER(10),
 Name VARCHAR(20),
 PLZ NUMBER(5),
 ORT VARCHAR(20),
-Adresse VARCHAR(20),
+Strasse VARCHAR(20),
+Telefonnummern TelefonnummernVarray,
 PRIMARY KEY(GeschaeftspartnerID)
 );
 
 create table Lieferanten
 (
-LieferantenID number(10),
+--LieferantenID number(10),
 GeschaeftspartnerID number(10),
-primary key (LieferantenID),
+--primary key (LieferantenID),
+primary key (GeschaeftspartnerID),
 foreign key (GeschaeftspartnerID) references Geschaeftspartner
 );
 
@@ -75,10 +80,10 @@ foreign key (TeilID) references Teile);
 
 CREATE TABLE Kunden
 (
-KundenID NUMBER(5),
 Vorname VARCHAR(20),
 IBAN NUMBER(10),
-PRIMARY KEY(KundenID),
+GeschaeftspartnerID number(10),
+primary key (GeschaeftspartnerID),
 foreign key (GeschaeftspartnerID) references Geschaeftspartner
 );
 

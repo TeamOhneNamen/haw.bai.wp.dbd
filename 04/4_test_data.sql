@@ -1,6 +1,6 @@
-INSERT INTO Kunden VALUES (1, 'Ana', 'Müller', '1234567890', '18516', 'Süderholz', 'Steinstraße 3');
-INSERT INTO Kunden VALUES (2, 'Christopher', 'Jäger', '1234567891', '22041', 'Hamburg', 'Dernauerstraße 12');
-INSERT INTO Kunden VALUES (3, 'Kristin', 'Schreier', '1234567892', '15566', 'Schöneiche','Stephansplatz 14');
+exec InsertKunden('Ana', 'Müller', '1234567890', '18516', 'Süderholz', 'Steinstraße 3');
+exec InsertKunden('Christopher', 'Jäger', '1234567891', '22041', 'Hamburg', 'Dernauerstraße 12');
+exec InsertKunden('Kristin', 'Schreier', '1234567892', '15566', 'Schöneiche','Stephansplatz 14');
 
 INSERT INTO Bestellungen VALUES (1, 1, 30.00, '05.01.2018');
 INSERT INTO Bestellungen VALUES (2, 2, 50.00, '04.03.2018');
@@ -8,18 +8,19 @@ INSERT INTO Bestellungen VALUES (3, 3, 70.00, '12.04.2018');
 INSERT INTO Bestellungen VALUES (4, 2, 20.00, '16.08.2018');
 INSERT INTO Bestellungen VALUES (5, 3, 40.00, '23.09.2018');
 
-INSERT INTO Lieferanten VALUES (1, 'Holzweg 32', '17498', 'Dersekow', 'GartenBauAG');
-INSERT INTO Lieferanten VALUES (2, 'Steinzweg 42', '19258', 'Schwanheide', 'SauberBauAG');
-INSERT INTO Lieferanten VALUES (3, 'Plankenweg 32', '19249', 'Gößlow', 'TerassenBauAG');
-INSERT INTO Lieferanten VALUES (4, 'Dielenweg 32', '18573', 'Rambin', 'DreckigBauAG');
-INSERT INTO Lieferanten VALUES (5, 'Lattenweg 42', '24395', 'Gelting', 'KleinerBauAG');
-INSERT INTO Lieferanten VALUES (6, 'Balkenweg 32', '17506', 'Lüssow', 'MaurerBauAG');
-INSERT INTO Lieferanten VALUES (7, 'Hochweg 3', '92286', 'Rieden', 'GartenBauAG');
-INSERT INTO Lieferanten VALUES (8, 'Stabelweg 32', '60437', 'Frankfurt am Main', 'SauberBauAG');
-INSERT INTO Lieferanten VALUES (9, 'Rekursionsweg 27', '57614', 'Niederwambach', 'TerassenBauAG');
-INSERT INTO Lieferanten VALUES (10, 'Hamweg 5', '66996', 'Schindhard', 'DreckigBauAG');
-INSERT INTO Lieferanten VALUES (11, 'Heuweg 26', '82205', 'Gilching', 'KleinerBauAG');
-INSERT INTO Lieferanten VALUES (12, 'Suchweg 34', '82216', 'Maisach', 'MaurerBauAG');
+exec InsertLieferant('GartenBauAG', 'Holzweg 32', '17498', 'Dersekow');
+exec InsertLieferant('SauberBauAG', 'Steinzweg 42', '19258', 'Schwanheide');
+exec InsertLieferant('TerassenBauAG', 'Plankenweg 32', '19249', 'Gößlow');
+exec InsertLieferant('DreckigBauAG', 'Dielenweg 32', '18573', 'Rambin');
+exec InsertLieferant('KleinerBauAG', 'Lattenweg 42', '24395', 'Gelting');
+exec InsertLieferant('MaurerBauAG', 'Balkenweg 32', '17506', 'Lüssow');
+exec InsertLieferant('GartenBauAG', 'Hochweg 3', '92286', 'Rieden');
+exec InsertLieferant('SauberBauAG', 'Stabelweg 32', '60437', 'Frankfurt am Main');
+exec InsertLieferant('TerassenBauAG', 'Rekursionsweg 27', '57614', 'Niederwambach');
+exec InsertLieferant('DreckigBauAG', 'Hamweg 5', '66996', 'Schindhard');
+exec InsertLieferant('KleinerBauAG', 'Heuweg 26', '82205', 'Gilching');
+exec InsertLieferant('MaurerBauAG', 'Suchweg 34', '82216', 'Maisach');
+
 
 INSERT INTO Teile VALUES (1, 1, 'A', 'Schraube', 10, 'LagerregaL 10', 10.00);
 INSERT INTO Teile VALUES (2, 2, 'A', 'Mutter', 10, 'LagerregaL 11', 20.00);

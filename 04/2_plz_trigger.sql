@@ -18,7 +18,7 @@ Create Sequence GESCHAEFT_ID;
 drop Procedure InsertLieferant;
 drop Procedure InsertKunden;
 
-create or replace Procedure InsertKunden(Name in VARCHAR,PLZ in NUMBER,ORT in VARCHAR, Strasse in VARCHAR, Vorname in VARCHAR,IBAN in NUMBER) AS
+create or replace Procedure InsertKunden(Name VARCHAR,PLZ NUMBER,ORT VARCHAR,Strasse VARCHAR, Vorname VARCHAR,IBAN NUMBER) AS
     GeschaeftspartnerID NUMBER;
 Begin
     GeschaeftspartnerID := GESCHAEFT_ID.NEXTVAL;
@@ -29,10 +29,11 @@ Begin
 End;
 /
 
-create or replace Procedure InsertLieferant(Names in VARCHAR,PLZ in NUMBER,ORT in VARCHAR,Strasse in VARCHAR) AS
+create or replace Procedure InsertLieferant(Name VARCHAR,PLZ NUMBER,ORT VARCHAR,Strasse VARCHAR) AS
     GeschaeftspartnerID NUMBER;
 Begin
-    INSERT INTO Geschaeftspartner VALUES (GESCHAEFT_ID.NEXTVAL, Names, PLZ, ORT, Strasse); 
+    GeschaeftspartnerID := GESCHAEFT_ID.NEXTVAL;
+    INSERT INTO Geschaeftspartner VALUES (GeschaeftspartnerID, Name, PLZ, ORT, Strasse); 
     INSERT INTO Lieferanten VALUES (GeschaeftspartnerID);
     
     
