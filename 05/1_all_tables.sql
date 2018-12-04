@@ -9,7 +9,8 @@ drop table Bestellungen CASCADE CONSTRAINTS;
 drop table Bestellpositionen CASCADE CONSTRAINTS;
 drop table Geschaeftspartner CASCADE CONSTRAINTS;
 
-CREATE OR REPLACE TYPE TelefonnummernVarray IS VARRAY(3) OF VARCHAR(20)
+Drop Type TelefonnummernVarray Force;
+CREATE TYPE TelefonnummernVarray IS VARRAY(3) OF VARCHAR(20)
 /
 
 CREATE TABLE Geschaeftspartner
