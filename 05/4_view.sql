@@ -27,3 +27,8 @@ SELECT * FROM LieferantenView;
 SELECT * FROM LieferantenLieferwertView;
 SELECT LieferantenView.GeschaeftspartnerID AS ID, COLUMN_VALUE AS Telefonnummer FROM LieferantenView, TABLE(LieferantenView.TelefonNummern) WHERE LieferantenView.GeschaeftspartnerID=12;
 SELECT * FROM LieferantenView WHERE EXISTS (SELECT * FROM TABLE(LieferantenView.TelefonNummern) WHERE COLUMN_VALUE LIKE '040%');
+
+SELECT g.name as Geschaeftspartner, f.name as Filiale FROM filiale f, geschaeftspartner g WHERE 
+   SDO_NN(f.ort, g.ort, 'sdo_num_res=1') = 'TRUE'; 
+   
+GRANT SELECT ON Geschaeftspartner TO ACF200;

@@ -1,6 +1,16 @@
-exec InsertKunden('Ana', 'Müller', 1234567890, TelefonnummernVarray('110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
-exec InsertKunden('Christopher', 'Jäger', 1234567890, TelefonnummernVarray('040110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL));
-exec InsertKunden('Kristin', 'Schreier', 1234567890, TelefonnummernVarray('04013220'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+INSERT INTO Filiale VALUES (1, 'Winterfell', MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+INSERT INTO Filiale VALUES (2, 'Kings Landing', MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.234234,9.2354235,NULL),NULL,NULL));
+INSERT INTO Filiale VALUES (3, 'Dorn', MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.553831,10.083741,NULL),NULL,NULL));
+
+
+exec InsertKunden('Ana', 'Müller', 1234567890, TelefonnummernVarray('110'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 1;
+--exec InsertKunden('Christopher', 'Jäger', 1234567890, TelefonnummernVarray('040110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL));
+exec InsertKunden('Christopher', 'Jäger', 1234567890, TelefonnummernVarray('040110'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 2;
+--exec InsertKunden('Kristin', 'Schreier', 1234567890, TelefonnummernVarray('04013220'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+exec InsertKunden('Kristin', 'Schreier', 1234567890, TelefonnummernVarray('04013220'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 3;
 
 INSERT INTO Bestellungen VALUES (1, 1, 30.00, '05.01.2018');
 INSERT INTO Bestellungen VALUES (2, 2, 50.00, '04.03.2018');
@@ -8,21 +18,45 @@ INSERT INTO Bestellungen VALUES (3, 3, 70.00, '12.04.2018');
 INSERT INTO Bestellungen VALUES (4, 2, 20.00, '16.08.2018');
 INSERT INTO Bestellungen VALUES (5, 3, 40.00, '23.09.2018');
 
+--exec InsertLieferant('GartenBauAG', TelefonnummernVarray('040'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+exec InsertLieferant('GartenBauAG', TelefonnummernVarray('040'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 4;
+
+--exec InsertLieferant('SauberBauAG', TelefonnummernVarray('030110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+exec InsertLieferant('SauberBauAG', TelefonnummernVarray('030110'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 5;
+--exec InsertLieferant('TerassenBauAG', TelefonnummernVarray('04115740'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+exec InsertLieferant('TerassenBauAG', TelefonnummernVarray('04115740'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 6;
+--exec InsertLieferant('DreckigBauAG', TelefonnummernVarray('04010980248975'));
+exec InsertLieferant('DreckigBauAG', TelefonnummernVarray('04010980248975'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.553831,10.083741,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 7;
+--exec InsertLieferant('KleinerBauAG', TelefonnummernVarray('0111110398'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.552262,9.934844,NULL),NULL,NULL));
+exec InsertLieferant('KleinerBauAG', TelefonnummernVarray('0111110398'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.552262,9.934844,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 8;
+--exec InsertLieferant('MaurerBauAG', TelefonnummernVarray('1040110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+exec InsertLieferant('MaurerBauAG', TelefonnummernVarray('1040110'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 9;
+--exec InsertLieferant('GartenBauAG', TelefonnummernVarray('978365978345'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL));
+exec InsertLieferant('GartenBauAG', TelefonnummernVarray('978365978345'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 10;
+--exec InsertLieferant('SauberBauAG', TelefonnummernVarray() ,MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
+exec InsertLieferant('SauberBauAG', TelefonnummernVarray());
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 11;
+--exec InsertLieferant('TerassenBauAG', TelefonnummernVarray('040110', '01763982764892735'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.552262,9.934844,NULL),NULL,NULL));
+exec InsertLieferant('TerassenBauAG', TelefonnummernVarray('040110', '01763982764892735'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.552262,9.934844,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 12;
+--exec InsertLieferant('DreckigBauAG', TelefonnummernVarray('1104011', '040'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL));
+exec InsertLieferant('DreckigBauAG', TelefonnummernVarray('1104011', '040'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 13;
+--exec InsertLieferant('KleinerBauAG', TelefonnummernVarray('LOL'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.550383,9.992385,NULL),NULL,NULL));
+exec InsertLieferant('KleinerBauAG', TelefonnummernVarray('LOL'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.550383,9.992385,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 14;
+--exec InsertLieferant('MaurerBauAG', TelefonnummernVarray('041934578081'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.553831,10.083741,NULL),NULL,NULL));
+exec InsertLieferant('MaurerBauAG', TelefonnummernVarray('041934578081'));
+Update Geschaeftspartner set Geschaeftspartner.ORT=MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.553831,10.083741,NULL),NULL,NULL) Where GESCHAEFTSPARTNERID = 15;
+
 select * from GESCHAEFTSPARTNER;
-
-exec InsertLieferant('GartenBauAG', TelefonnummernVarray('040'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
-exec InsertLieferant('SauberBauAG', TelefonnummernVarray('030110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
-exec InsertLieferant('TerassenBauAG', TelefonnummernVarray('04115740'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
-exec InsertLieferant('DreckigBauAG', TelefonnummernVarray('04010980248975'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.553831,10.083741,NULL),NULL,NULL));
-exec InsertLieferant('KleinerBauAG', TelefonnummernVarray('0111110398'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.552262,9.934844,NULL),NULL,NULL));
-exec InsertLieferant('MaurerBauAG', TelefonnummernVarray('1040110'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
-exec InsertLieferant('GartenBauAG', TelefonnummernVarray('978365978345'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL));
-exec InsertLieferant('SauberBauAG', TelefonnummernVarray() ,MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.58163,9.988361,NULL),NULL,NULL));
-exec InsertLieferant('TerassenBauAG', TelefonnummernVarray('040110', '01763982764892735'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.552262,9.934844,NULL),NULL,NULL));
-exec InsertLieferant('DreckigBauAG', TelefonnummernVarray('1104011', '040'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.556158,10.022125,NULL),NULL,NULL));
-exec InsertLieferant('KleinerBauAG', TelefonnummernVarray('LOL'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.550383,9.992385,NULL),NULL,NULL));
-exec InsertLieferant('MaurerBauAG', TelefonnummernVarray('041934578081'), MDSYS.SDO_GEOMETRY(2001,4055 ,MDSYS.SDO_POINT_TYPE(53.553831,10.083741,NULL),NULL,NULL));
-
 
 INSERT INTO Teile VALUES (1, 1+3, 'A', 'Schraube', 10, 'LagerregaL 10', 10.00);
 INSERT INTO Teile VALUES (2, 2+3, 'A', 'Mutter', 10, 'LagerregaL 11', 20.00);
